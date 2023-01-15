@@ -4,10 +4,10 @@ import { NgxBootstrapModule } from './modules/ngx-bootstrap.module';
 
 @NgModule({
   declarations: [],
-  imports: [
+  imports: [CommonModule, NgxBootstrapModule],
+  exports: [
     CommonModule,
     NgxBootstrapModule, // Ajoutez l’exportation de NgxBootstrap
   ],
-  exports: [CommonModule],
 })
 export class SharedModule {}
