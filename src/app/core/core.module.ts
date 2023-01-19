@@ -3,14 +3,20 @@ import { CommonModule } from '@angular/common';
 import { PublicModule } from '../public/public.module';
 import { ProtectedModule } from '../protected/protected.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    NavbarComponent
+  ],
   imports: [
     CommonModule,
     BrowserAnimationsModule,
     PublicModule,
     ProtectedModule,
+  ],
+  exports: [
+    NavbarComponent
   ],
 })
 export class CoreModule {
