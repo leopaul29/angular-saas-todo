@@ -1,11 +1,14 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'al-planning-workday-item',
   templateUrl: './planning-workday-item.component.html',
-  styles: [
-  ]
+  styles: [],
 })
 export class PlanningWorkdayItemComponent {
-
+  @Input() workday: {
+    dueDate: string;
+    doneTasks: number;
+    remainingTasks: number;
+  };
 }
