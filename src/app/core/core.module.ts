@@ -1,5 +1,6 @@
 import { NgModule, Optional, SkipSelf } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 import { PublicModule } from '../public/public.module';
 import { ProtectedModule } from '../protected/protected.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -7,20 +8,15 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
-  declarations: [
-    NavbarComponent,
-    FooterComponent
-  ],
+  declarations: [NavbarComponent, FooterComponent],
   imports: [
     CommonModule,
+    HttpClientModule,
     BrowserAnimationsModule,
     PublicModule,
     ProtectedModule,
   ],
-  exports: [
-    NavbarComponent,
-    FooterComponent
-  ],
+  exports: [NavbarComponent, FooterComponent],
 })
 export class CoreModule {
   //s’assurer que le CoreModule n’est importé qu’une seule fois
