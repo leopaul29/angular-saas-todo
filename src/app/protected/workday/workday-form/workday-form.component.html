@@ -1,1 +1,10 @@
-<p>workday-form works!</p>
+<form [formGroup]="workdayForm">
+    <al-workday-form-date></al-workday-form-date>
+    <al-workday-form-tasks></al-workday-form-tasks>
+    <al-workday-form-notes></al-workday-form-notes>
+    <div class="text-right">
+        <button (click)="submit()" type="submit" class="btn btn-success btn-lg" [disabled]="workdayForm.invalid">
+            Sauvegarder
+        </button>
+    </div>
+</form>
