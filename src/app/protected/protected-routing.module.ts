@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ProtectedComponent } from './protected.component';
-import { WorkdayComponent } from './workday/workday/workday.component';
 
 const routes: Routes = [
   {
@@ -30,7 +29,11 @@ const routes: Routes = [
         loadChildren: () =>
           import('./profil/profil.module').then((m) => m.ProfilModule),
       },
-      { path: 'workday', component: WorkdayComponent },
+      {
+        path: 'workday',
+        loadChildren: () =>
+          import('./workday/workday.module').then((m) => m.WorkdayModule),
+      },
     ],
   },
 ];
