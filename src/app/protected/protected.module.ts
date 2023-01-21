@@ -7,9 +7,12 @@ import { PlanningModule } from './planning/planning.module';
 import { ProfilModule } from './profil/profil.module';
 import { WorkdayModule } from './workday/workday.module';
 import { SharedModule } from '../shared/shared.module';
+import { ProtectedComponent } from './protected.component';
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    ProtectedComponent
+  ],
   imports: [
     SharedModule,
     ProtectedRoutingModule,
