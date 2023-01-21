@@ -13,6 +13,11 @@ export class WorkdayFormComponent implements OnInit {
 
   ngOnInit() {
     this.workdayForm = this.createWorkdayForm();
+
+    const taskGroup: FormGroup = this.fb.group({
+      title: 'Ecrire un article sur awesome-angular.com !',
+    });
+    this.tasks.push(taskGroup);
   }
 
   get dueDate() {
