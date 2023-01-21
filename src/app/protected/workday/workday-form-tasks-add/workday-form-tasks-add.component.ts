@@ -1,11 +1,16 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'al-workday-form-tasks-add',
   templateUrl: './workday-form-tasks-add.component.html',
-  styles: [
-  ]
+  styles: [],
 })
-export class WorkdayFormTasksAddComponent {
+export class WorkdayFormTasksAddComponent implements OnInit {
+  @Output() addedTask = new EventEmitter<void>();
 
+  ngOnInit() {}
+
+  addTask() {
+    this.addedTask.emit();
+  }
 }
