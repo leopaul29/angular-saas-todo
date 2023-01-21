@@ -1,11 +1,18 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { FormControl } from '@angular/forms';
+import { BsLocaleService } from 'ngx-bootstrap/datepicker';
 
 @Component({
   selector: 'al-workday-form-date',
   templateUrl: './workday-form-date.component.html',
-  styles: [
-  ]
+  styles: [],
 })
 export class WorkdayFormDateComponent {
+  @Input() dueDate: FormControl;
 
+  constructor(private localeService: BsLocaleService) {}
+
+  ngOnInit() {
+    this.localeService.use('fr');
+  }
 }
