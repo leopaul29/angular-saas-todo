@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 
 import { ProtectedRoutingModule } from './protected-routing.module';
-import { DashboardModule } from './dashboard/dashboard.module';
 import { ParametersModule } from './parameters/parameters.module';
 import { PlanningModule } from './planning/planning.module';
 import { ProfilModule } from './profil/profil.module';
@@ -10,17 +9,14 @@ import { SharedModule } from '../shared/shared.module';
 import { ProtectedComponent } from './protected.component';
 
 @NgModule({
-  declarations: [
-    ProtectedComponent
-  ],
+  declarations: [ProtectedComponent],
   imports: [
     SharedModule,
-    ProtectedRoutingModule,
-    DashboardModule,
     ParametersModule,
     PlanningModule,
     ProfilModule,
     WorkdayModule,
+    ProtectedRoutingModule,
   ],
 })
 export class ProtectedModule {}
