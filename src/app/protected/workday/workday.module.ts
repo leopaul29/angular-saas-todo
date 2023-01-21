@@ -5,6 +5,7 @@ import { WorkdayRoutingModule } from './workday-routing.module';
 import { WorkdayFormComponent } from './workday-form/workday-form.component';
 import { WorkdayFormDateComponent } from './workday-form-date/workday-form-date.component';
 import { WorkdayFormTasksItemComponent } from './workday-form-tasks-item/workday-form-tasks-item.component';
+import { WorkdayFormTasksAddComponent } from './workday-form-tasks-add/workday-form-tasks-add.component';
 
 @NgModule({
   declarations: [
@@ -12,6 +13,7 @@ import { WorkdayFormTasksItemComponent } from './workday-form-tasks-item/workday
     WorkdayFormComponent,
     WorkdayFormDateComponent,
     WorkdayFormTasksItemComponent,
+    WorkdayFormTasksAddComponent,
   ],
   imports: [SharedModule, WorkdayRoutingModule],
 })
