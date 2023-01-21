@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { PlanningComponent } from './planning/planning/planning.component';
 import { ProfilComponent } from './profil/profil/profil.component';
 import { ProtectedComponent } from './protected.component';
 import { WorkdayComponent } from './workday/workday/workday.component';
@@ -22,7 +21,11 @@ const routes: Routes = [
             (m) => m.ParametersModule
           ),
       },
-      { path: 'planning', component: PlanningComponent },
+      {
+        path: 'planning',
+        loadChildren: () =>
+          import('./planning/planning.module').then((m) => m.PlanningModule),
+      },
       { path: 'profil', component: ProfilComponent },
       { path: 'workday', component: WorkdayComponent },
     ],
