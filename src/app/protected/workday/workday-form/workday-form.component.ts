@@ -6,6 +6,7 @@ import {
   FormControl,
   Validators,
 } from '@angular/forms';
+import { IsDateValidator } from 'src/app/shared/validators/is-date.validator';
 
 @Component({
   selector: 'al-workday-form',
@@ -33,7 +34,7 @@ export class WorkdayFormComponent implements OnInit {
 
   createWorkdayForm(): FormGroup {
     const workdayForm: FormGroup = this.fb.group({
-      dueDate: '',
+      dueDate: ['', [Validators.required, IsDateValidator]],
       tasks: this.fb.array([], [Validators.required, Validators.maxLength(6)]),
       notes: '',
     });

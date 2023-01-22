@@ -5,6 +5,12 @@
                 <label class="mr-3">Date:</label>
                 <input bsDatepicker [formControl]="dueDate" [bsConfig]="{ dateInputFormat: 'DD/MM/YYYY' }" type="text"
                     class="form-control form-control-sm align-middle" />
+                <small *ngIf="dueDate.errors">
+                    <span [hidden]="!dueDate.errors['required']">Date requise.</span>
+                    <span [hidden]="!dueDate.errors['isDate']">
+                        Date non valide, utilisez le datepicker plutôt !
+                    </span>
+                </small>
             </div>
         </div>
     </div>
