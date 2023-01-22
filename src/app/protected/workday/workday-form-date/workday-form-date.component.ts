@@ -7,7 +7,7 @@ import { BsLocaleService } from 'ngx-bootstrap/datepicker';
   templateUrl: './workday-form-date.component.html',
   styles: [],
 })
-export class WorkdayFormDateComponent {
+export class WorkdayFormDateComponent implements OnInit {
   @Input() dueDate: FormControl;
 
   constructor(private localeService: BsLocaleService) {}

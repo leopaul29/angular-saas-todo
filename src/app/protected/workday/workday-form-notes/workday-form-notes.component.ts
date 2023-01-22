@@ -1,11 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'al-workday-form-notes',
   templateUrl: './workday-form-notes.component.html',
-  styles: [
-  ]
+  styles: [],
 })
-export class WorkdayFormNotesComponent {
+export class WorkdayFormNotesComponent implements OnInit {
+  @Input() notes: FormControl;
 
+  ngOnInit() {}
 }
