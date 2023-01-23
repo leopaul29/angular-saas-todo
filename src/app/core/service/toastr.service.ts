@@ -24,4 +24,8 @@ export class ToastrService {
         }
       });
   }
+
+  closeToastr() {
+    this.toastr.next(null);
+  }
 }

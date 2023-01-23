@@ -16,4 +16,8 @@ export class ToastrComponent implements OnInit {
   ngOnInit() {
     this.toastr$ = this.toastrService.toastr$;
   }
+
+  closeToastr() {
+    this.toastrService.closeToastr();
+  }
 }
