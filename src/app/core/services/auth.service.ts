@@ -1,8 +1,9 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, of } from 'rxjs';
+import { BehaviorSubject, Observable, of, switchMap } from 'rxjs';
 import { User } from 'src/app/shared/models/user';
 import { environment } from 'src/environments/environment';
+import { UsersService } from './users.service';
 
 @Injectable({
   providedIn: 'root',
@@ -13,7 +14,7 @@ export class AuthService {
   );
   readonly user$: Observable<User | null> = this.user.asObservable();
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private usersService: UsersService) {}
 
   login(email: string, password: string): Observable<User | null> {
     // 1. A faire : Faire un appel au backend.
@@ -43,8 +44,18 @@ export class AuthService {
     const httpOptions = {
       headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
     };
+    return this.http.post(url, data, httpOptions).pipe(
+      switchMap((data: any) => {
+        const jwt: string = data.idToken;
+        const user = new User({
+          email: data.email,
+          id: data.localId,
+          name: name,
+        });
 
-    return this.http.post<User>(url, data, httpOptions);
+        return this.usersService.save(user, jwt);
+      })
+    );
   }
 
   logout(): void {}
