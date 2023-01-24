@@ -1,6 +1,8 @@
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, of } from 'rxjs';
 import { User } from 'src/app/shared/models/user';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -11,7 +13,7 @@ export class AuthService {
   );
   readonly user$: Observable<User | null> = this.user.asObservable();
 
-  constructor() {}
+  constructor(private http: HttpClient) {}
 
   login(email: string, password: string): Observable<User | null> {
     // 1. A faire : Faire un appel au backend.
@@ -30,7 +32,19 @@ export class AuthService {
     email: string,
     password: string
   ): Observable<User | null> {
-    return of(new User());
+    const url: string = `${environment.firebase.auth.baseURL}/signupNewUser?key=${environment.firebase.apiKey}`;
+
+    const data = {
+      email: email,
+      password: password,
+      returnSecureToken: true,
+    };
+
+    const httpOptions = {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+    };
+
+    return this.http.post<User>(url, data, httpOptions);
   }
 
   logout(): void {}
